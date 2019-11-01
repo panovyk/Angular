@@ -16,7 +16,7 @@ export class AppComponent {
     {
       id: 1,
       city: 'Kyiv',
-      street: 'Lvivska',
+      street: 'Dniprovska',
       rooms: 3,
       price: 300000
     },
