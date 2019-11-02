@@ -165,6 +165,6 @@ export class AppComponent {
 
   addUser(addUserForm: NgForm) {
     this.Users.push(this.User);
-    console.log('new user created');
+    console.log('new user created:', this.User.login);
   }
 }

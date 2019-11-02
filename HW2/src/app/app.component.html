@@ -16,10 +16,12 @@
 
 
   <div class="forms_margin_top"
-       [ngSwitch]="LoginClick">
+       [ngSwitch]="LoginClick"
+  >
     <form *ngSwitchCase=true
           #loginReference="ngForm"
-          (ngSubmit)="checkValidationRef(loginReference)"
+          (ngSubmit)="checkValidationRef(loginReference); "
+
     >
 
       Login:
