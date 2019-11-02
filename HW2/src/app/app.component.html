@@ -20,8 +20,8 @@
   >
     <form *ngSwitchCase=true
           #loginReference="ngForm"
-          (ngSubmit)="checkValidationRef(loginReference); "
-
+          (ngSubmit)="loginUser();
+           checkValidationRef(loginReference)"
     >
 
       Login:
@@ -37,6 +37,10 @@
              value="Login">
 
     </form>
+  </div>
+
+  <div>
+    {{loginInfo}}
   </div>
 
   <div class="forms_margin_top"

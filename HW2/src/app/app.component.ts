@@ -18,6 +18,7 @@ export class AppComponent {
   all_inf: boolean;
   randomBlocked: boolean = Math.random() >= 0.5;
   house_index: number = -1;
+  loginInfo: string;
 
   Users = [
     {
@@ -106,21 +107,26 @@ export class AppComponent {
   ];
 
   House = {
-    id: this.Houses.length+1,
+    id: this.Houses.length + 1,
     city: '',
     street: '',
     rooms: 0,
     price: 0,
-    user: this.Users[Math.floor(this.Users.length+ 1)]
+    user: this.Users[Math.floor(this.Users.length + 1)]
   };
 
   User = {
-    id: this.Users.length+1,
+    id: this.Users.length + 1,
     firstname: '',
     email: '',
     login: '',
     password: '',
     isblocked: this.randomBlocked
+  };
+
+  UserLogin = {
+    login: '',
+    password: ''
   };
 
   onInput(ev) {
@@ -156,6 +162,13 @@ export class AppComponent {
 
   checkValidationRef(loginReference: NgForm) {
     console.log(loginReference.value);
+  }
+
+  loginUser() {
+    const foundedUser = this.Users.find(
+      User => this.UserLogin.login === User.login &&
+    this.UserLogin.password === User.password);
+    foundedUser ? this.loginInfo = 'Welcome' : this.loginInfo = 'User is not found'
   }
 
   addHouse(addHouseForm: NgForm) {
