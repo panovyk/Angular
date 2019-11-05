@@ -1,0 +1,150 @@
+<h1> Lun test project </h1>
+
+<input type="text"
+       placeholder="What do you looking for?"
+       (input)="onInput($event)">
+
+<button (click)="onClick()">Search</button>
+<div>
+  {{Value}}
+</div>
+
+<div>
+  <button (click)="loginButton()" class="buttons_margin_top">Login</button>
+  <button (click)="registerButton()" class="buttons_margin_top">Register new User</button>
+  <button (click)="create_house()" class="buttons_margin_top">Create new House</button>
+
+
+  <div class="forms_margin_top"
+       [ngSwitch]="LoginClick"
+  >
+    <form *ngSwitchCase=true
+          #loginReference="ngForm"
+          (ngSubmit)="loginUser();
+           checkValidationRef(loginReference)"
+    >
+
+      Login:
+      <input type="email" name="login"
+             placeholder="enter your login or e-mail" ngForm>
+      <br>
+      Password
+      <input type="password" name="password"
+             placeholder="enter password" ngForm>
+      <br>
+      <input [disabled]="loginReference.invalid"
+             type="submit"
+             value="Login">
+
+    </form>
+  </div>
+
+  <div>
+    {{loginInfo}}
+  </div>
+
+  <div class="forms_margin_top"
+       [ngSwitch]="RegisterClick">
+    <form
+        #addUserForm='ngForm'
+        (ngSubmit)="addUser(addUserForm)"
+        *ngSwitchCase=true>
+
+      Firstname:
+      <input type="text" name="firstname"
+             placeholder="enter your first name"
+             [(ngModel)]=User.firstname>
+      <br>
+      E-mail:
+      <input type="email" name="email"
+             placeholder="enter your e-mail"
+             [(ngModel)]=User.email email>
+
+      <br>
+      Login:
+      <input type="login" name="login"
+             placeholder="enter your login"
+             [(ngModel)]=User.login>
+      <br>
+      Password
+      <input type="password" name="password"
+             placeholder="enter password"
+             [(ngModel)]=User.password>
+      <br>
+      <input [disabled]="!addUserForm.valid"
+             type="submit"
+             value="Register now">
+
+    </form>
+  </div>
+
+  <div class="forms_margin_top"
+       [ngSwitch]="CreateHouse">
+    <form #addHouseForm="ngForm"
+          (ngSubmit)="addHouse(addHouseForm)"
+          *ngSwitchCase=true>
+
+      City:
+      <input type="text" name="city"
+             placeholder="city of your house"
+             [(ngModel)]=House.city>
+      <br>
+      Street:
+      <input type="text" name="street"
+             placeholder="name of your street"
+             [(ngModel)]=House.street>
+      <br>
+      Rooms:
+      <input type="number" name="rooms"
+             placeholder="how many rooms?"
+             [(ngModel)]=House.rooms>
+      <br>
+      Price:
+      <input type="number" name="price"
+             placeholder="expected price"
+             [(ngModel)]=House.price>
+      <br>
+      <input [disabled]="!addHouseForm.valid"
+             type="submit"
+             value="Create">
+
+    </form>
+  </div>
+
+  <div class="users_style"
+       *ngFor="let house of Houses"
+       [ngClass]="randomBlocked? 'user-ok':'user-blocked'">
+
+    city: {{house.city}}
+    <br>
+    user-holder: {{house.user.firstname | json}}
+    <br>
+    user-holder: {{house.user.isblocked | json}}
+
+    <button (click)="show_more(house.id)"> show more</button>
+
+    <div *ngIf="house_index === house.id && all_inf"
+         class="show_more">
+      street: {{house.street}}
+      <br>
+      rooms: {{house.rooms}}
+      <br>
+      price: {{house.price}}
+      <hr>
+    </div>
+  </div>
+
+  <!--  В минулій ДЗ у вас були будиночки, які ви ітерували.-->
+  <!--  До цих будиночків потрібно додати власника.-->
+  <!--  Зробити масив з юзерів з стандартними полями юзера та полем is_blocked: boolean-->
+  <!--  Тепер до будиночку додати власника, який буде один з юзерів з того масиву.-->
+  <!--  Тепер коли ітеруєте масив будиночків відображаєте часткову інформацію про будинок. І додати кнопку show full info, яка буде відображати повну інформацію про будинок разом з власником.-->
+  <!--  Якщо власник заблокований, то будинок обмальовувати червоним кольором.-->
+
+  <!--  Далі зробити форму реєстраціх і логінації юзера.-->
+  <!--  Реєструвати юзера і додавати його в масив з юзерами. Обовязково малідувати поля юзера за допомогою валідаторів форми і давати юзеру знати, яке поле заповнене не вірно. is_blocekd має бути рандомно.-->
+  <!--  Логінація юзера. Якщо юзера з таким логіном і паролем знайдено, но видавати повідомлення Welcome. Якщо ні, то user is not found.-->
+
+  <!--  Стоврення будиночку.-->
+  <!--  Так само створювати як і юзера. Всі валідації мають бути присутні.-->
+  <!--  Власника вибираємо рандомного  з вже існуючих юзерів в масиві users.-->

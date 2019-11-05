@@ -1,0 +1,21 @@
+.user-blocked {
+  background-color: darkred;
+}
+
+.user-ok {
+  background-color: darkgreen;
+}
+
+.users_style {
+  width: 250px;
+  height: auto;
+  margin: 1rem;
+}
+
+.forms_margin_top {
+  margin-top: 1rem;
+}
+
+.buttons_margin_top {
+  margin-top: 4rem
+}
