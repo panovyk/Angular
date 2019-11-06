@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CurrencyValuePipe implements PipeTransform {
 
   transform(value: number, currency: number): number {
-    return Math.pow(25.8, currency)
+    return Math.pow(25.7, currency)
   }
 
 }
