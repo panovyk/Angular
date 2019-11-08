@@ -10,10 +10,6 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  inputedVaule: string | number;
-  Value: string | number;
-  LoginClick: boolean;
-  RegisterClick: boolean;
   CreateHouse: boolean;
   all_inf: boolean;
   randomBlocked: boolean = Math.random() >= 0.5;
@@ -128,32 +124,6 @@ export class AppComponent {
     login: '',
     password: ''
   };
-
-  onInput(ev) {
-    this.inputedVaule = ev.target.value;
-  }
-
-  onClick() {
-    this.Value = this.inputedVaule;
-  }
-
-  loginButton() {
-    this.LoginClick = !this.LoginClick;
-    this.RegisterClick = false;
-    this.CreateHouse = false
-  }
-
-  registerButton() {
-    this.RegisterClick = !this.RegisterClick;
-    this.LoginClick = false;
-    this.CreateHouse = false
-  }
-
-  create_house() {
-    this.CreateHouse = !this.CreateHouse;
-    this.LoginClick = false;
-    this.RegisterClick = false
-  }
 
   show_more(id: number) {
     this.house_index = id;

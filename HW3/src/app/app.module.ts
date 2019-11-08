@@ -5,19 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { CurrencyValuePipe } from './pipes/currency-value.pipe';
-import { LoginDirective } from './directives/login.directive';
-import { RegistrationDirective } from './directives/registration.directive';
-import { HouseDirective } from './directives/house.directive';
-import { SearchDirective } from './directives/search.directive';
+import {SearchComponent} from "./components/search/search.component";
+
+//TODO
+// import { LoginDirective } from './directives/login.directive';
+// import { RegistrationDirective } from './directives/registration.directive';
+// import { HouseDirective } from './directives/house.directive';
+// import { SearchDirective } from './directives/search.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrencyValuePipe,
-    LoginDirective,
-    RegistrationDirective,
-    HouseDirective,
-    SearchDirective
+    SearchComponent,
+    // CurrencyValuePipe,
+    // LoginDirective,
+    // RegistrationDirective,
+    // HouseDirective,
+    // SearchDirective
   ],
   imports: [
     BrowserModule,

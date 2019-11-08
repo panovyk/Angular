@@ -1,0 +1,27 @@
+<div class="forms_margin_top"
+     [ngSwitch]="LoginClick"
+>
+  <form *ngSwitchCase=true
+        #loginReference="ngForm"
+        (ngSubmit)="loginUser();
+           checkValidationRef(loginReference)"
+  >
+
+    Login:
+    <input type="email" name="login"
+           placeholder="enter your login or e-mail" ngForm>
+    <br>
+    Password
+    <input type="password" name="password"
+           placeholder="enter password" ngForm>
+    <br>
+    <input [disabled]="loginReference.invalid"
+           type="submit"
+           value="Login">
+
+  </form>
+</div>
+
+<div>
+  {{loginInfo}}
+</div>

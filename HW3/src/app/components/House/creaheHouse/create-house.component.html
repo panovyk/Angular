@@ -1,0 +1,33 @@
+
+<div class="forms_margin_top"
+     [ngSwitch]="CreateHouse">
+  <form #addHouseForm="ngForm"
+        (ngSubmit)="addHouse(addHouseForm)"
+        *ngSwitchCase=true>
+
+    City:
+    <input type="text" name="city"
+           placeholder="city of your house"
+           [(ngModel)]=House.city>
+    <br>
+    Street:
+    <input type="text" name="street"
+           placeholder="name of your street"
+           [(ngModel)]=House.street>
+    <br>
+    Rooms:
+    <input type="number" name="rooms"
+           placeholder="how many rooms?"
+           [(ngModel)]=House.rooms>
+    <br>
+    Price:
+    <input type="number" name="price"
+           placeholder="expected price"
+           [(ngModel)]=House.price>
+    <br>
+    <input [disabled]="!addHouseForm.valid"
+           type="submit"
+           value="Create">
+
+  </form>
+</div>

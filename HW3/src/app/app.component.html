@@ -1,115 +1,15 @@
 <h1> Lun test project </h1>
 
-<input type="text"
-       placeholder="What do you looking for?"
-       (input)="onInput($event)">
-
-<button (click)="onClick()">Search</button>
-<div>
-  {{Value}}
-</div>
+<app-search>
+  [Value] = "Value"
+</app-search>
+<br>
 
 <div>
   <button (click)="loginButton()" class="buttons_margin_top">Login</button>
   <button (click)="registerButton()" class="buttons_margin_top">Register new User</button>
   <button (click)="create_house()" class="buttons_margin_top">Create new House</button>
 
-
-  <div class="forms_margin_top"
-       [ngSwitch]="LoginClick"
-  >
-    <form *ngSwitchCase=true
-          #loginReference="ngForm"
-          (ngSubmit)="loginUser();
-           checkValidationRef(loginReference)"
-    >
-
-      Login:
-      <input type="email" name="login"
-             placeholder="enter your login or e-mail" ngForm>
-      <br>
-      Password
-      <input type="password" name="password"
-             placeholder="enter password" ngForm>
-      <br>
-      <input [disabled]="loginReference.invalid"
-             type="submit"
-             value="Login">
-
-    </form>
-  </div>
-
-  <div>
-    {{loginInfo}}
-  </div>
-
-  <div class="forms_margin_top"
-       [ngSwitch]="RegisterClick">
-    <form
-        #addUserForm='ngForm'
-        (ngSubmit)="addUser(addUserForm)"
-        *ngSwitchCase=true>
-
-      Firstname:
-      <input type="text" name="firstname"
-             placeholder="enter your first name"
-             [(ngModel)]=User.firstname>
-      <br>
-      E-mail:
-      <input type="email" name="email"
-             placeholder="enter your e-mail"
-             [(ngModel)]=User.email email>
-
-      <br>
-      Login:
-      <input type="login" name="login"
-             placeholder="enter your login"
-             [(ngModel)]=User.login>
-      <br>
-      Password
-      <input type="password" name="password"
-             placeholder="enter password"
-             [(ngModel)]=User.password>
-      <br>
-      <input [disabled]="!addUserForm.valid"
-             type="submit"
-             value="Register now">
-
-    </form>
-  </div>
-
-  <div class="forms_margin_top"
-       [ngSwitch]="CreateHouse">
-    <form #addHouseForm="ngForm"
-          (ngSubmit)="addHouse(addHouseForm)"
-          *ngSwitchCase=true>
-
-      City:
-      <input type="text" name="city"
-             placeholder="city of your house"
-             [(ngModel)]=House.city>
-      <br>
-      Street:
-      <input type="text" name="street"
-             placeholder="name of your street"
-             [(ngModel)]=House.street>
-      <br>
-      Rooms:
-      <input type="number" name="rooms"
-             placeholder="how many rooms?"
-             [(ngModel)]=House.rooms>
-      <br>
-      Price:
-      <input type="number" name="price"
-             placeholder="expected price"
-             [(ngModel)]=House.price>
-      <br>
-      <input [disabled]="!addHouseForm.valid"
-             type="submit"
-             value="Create">
-
-    </form>
-  </div>
 
   <div class="users_style"
        *ngFor="let house of Houses"
