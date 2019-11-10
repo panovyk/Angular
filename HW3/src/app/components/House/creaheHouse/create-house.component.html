@@ -1,7 +1,5 @@
-
-<div class="forms_margin_top"
-     [ngSwitch]="CreateHouse">
-  <form #addHouseForm="ngForm"
+  <form class="forms_margin_top"
+        #addHouseForm="ngForm"
         (ngSubmit)="addHouse(addHouseForm)"
         *ngSwitchCase=true>
 
@@ -30,4 +28,3 @@
            value="Create">
 
   </form>
-</div>

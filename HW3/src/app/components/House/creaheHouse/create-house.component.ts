@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, Output} from '@angular/core';
 import {NgForm} from "@angular/forms";
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'app-create-house',
+  templateUrl: './create-house.component.html',
+  styleUrls: ['./create-house.component.css']
 
 })
 

@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {NgForm} from "@angular/forms";
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'app-login-user',
+  templateUrl: './login-user.component.html',
+  styleUrls: ['./login-user.component.css']
 
 })
 

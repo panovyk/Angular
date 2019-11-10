@@ -17,6 +17,7 @@ import {SearchComponent} from "./components/search/search.component";
   declarations: [
     AppComponent,
     SearchComponent,
+    CurrencyValuePipe,
     // CurrencyValuePipe,
     // LoginDirective,
     // RegistrationDirective,
